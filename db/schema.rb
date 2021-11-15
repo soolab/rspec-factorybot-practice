@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_15_063327) do
+ActiveRecord::Schema.define(version: 2021_11_15_071111) do
 
   create_table "todos", force: :cascade do |t|
     t.string "name"
@@ -18,6 +18,14 @@ ActiveRecord::Schema.define(version: 2021_11_15_063327) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_todos_on_user_id"
+  end
+
+  create_table "user_tokens", force: :cascade do |t|
+    t.string "token"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_user_tokens_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -28,4 +36,5 @@ ActiveRecord::Schema.define(version: 2021_11_15_063327) do
   end
 
   add_foreign_key "todos", "users"
+  add_foreign_key "user_tokens", "users"
 end
