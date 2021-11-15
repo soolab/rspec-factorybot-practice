@@ -4,4 +4,7 @@ Rails.application.routes.draw do
   post '/users/sign-up', to: 'users#signup'
   post '/users/sign-in', to: 'users#signin'
 
+  post '/todos', to: 'todos#create'
+  get '/todos', to: 'todos#index'
+
 end

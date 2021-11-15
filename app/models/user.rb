@@ -4,4 +4,5 @@ class User < ApplicationRecord
   has_secure_password
 
   has_many :todos
+  has_many :user_tokens, dependent: :destroy
 end
